@@ -10,7 +10,7 @@ namespace MoviesApis.Models
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public List<WatchList> WatchHistory { get; } = new List<WatchList>();
+        //public List<WatchingList> WatchHistory { get; } = new List<WatchingList>();
         public DateTime CreationDateTime { get; set; }
         public DateTime? LastUpdateDateTime { get; set; }
     }

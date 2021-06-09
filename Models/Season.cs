@@ -10,6 +10,7 @@ namespace MoviesApis.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public int SeriesId { get; set; }
+        public int EposidesNumber { get; set; }
         public List<Video> Episodes { get; } = new List<Video>();
         public Series Series { get; set; }
         public DateTime CreationDateTime { get; set; }

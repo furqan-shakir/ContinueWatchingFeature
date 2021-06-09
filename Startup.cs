@@ -13,6 +13,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MoviesApis.DBContexts;
+using MoviesApis.Helpers;
+using Microsoft.Extensions.Options;
+using MoviesApis.Services;
+
 namespace MoviesApis
 {
     public class Startup
@@ -27,6 +31,18 @@ namespace MoviesApis
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // MongoDB configs
+            services.Configure<MoviesDatabaseSettings>(
+                Configuration.GetSection(nameof(MoviesDatabaseSettings)));
+
+            services.AddSingleton<IMoviesDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<MoviesDatabaseSettings>>().Value);
+
+            // the MovieService class is registered with DI to support constructor injection in consuming classes
+            // The singleton service lifetime is most appropriate because MovieService takes a direct dependency on MongoClient
+            services.AddSingleton<MovieService>();
+
+            // Mysql configs
             string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContextPool<MySqlDbContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
 

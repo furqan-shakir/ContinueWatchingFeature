@@ -26,21 +26,21 @@ namespace MoviesApis.Controllers
             _logger = logger;
             _dbContext = dbContext;
         }
-        // PUT: api/TodoItems/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Watch(WatchVideoForm form)
-        {
-            // See if the video is already exist in the watching list
-            var watchEntry = _dbContext.WatchLists.Where(item => item.UserId == form.UserId && item.VideoId == form.VideoId).SingleOrDefault();
-            if(watchEntry != null)
-            {
-                // Remove the video from the watching list it's crossed 90% of the duration
-                var percentage = (form.Seek / watchEntry.Video.Duration) *100;
-                if (percentage > 90 && watchEntry.Video.Type == Models.VideoType.Movie){
-                    _dbContext.WatchLists.Remove(watchEntry);
-                }
-            }
-        }
+        //// PUT: api/TodoItems/5
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> Watch(WatchVideoForm form)
+        //{
+        //    // See if the video is already exist in the watching list
+        //    var watchEntry = _dbContext.WatchLists.Where(item => item.UserId == form.UserId && item.VideoId == form.VideoId).SingleOrDefault();
+        //    if(watchEntry != null)
+        //    {
+        //        // Remove the video from the watching list it's crossed 90% of the duration
+        //        var percentage = (form.Seek / watchEntry.Video.Duration) *100;
+        //        if (percentage > 90 && watchEntry.Video.Type == Models.VideoType.Movie){
+        //            _dbContext.WatchLists.Remove(watchEntry);
+        //        }
+        //    }
+        //}
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()

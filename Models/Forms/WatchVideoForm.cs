@@ -10,5 +10,11 @@ namespace MoviesApis.Models.Forms
         public int UserId { get; set; }
         public int VideoId { get; set; }
         public float Seek { get; set; }
+        public float Duration { get; set; }
+        public int SeasonId { get; set; }
+        public int SeriesId { get; set; }
+        public VideoType Type { get; set; }
+
+
     }
 }

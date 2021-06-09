@@ -13,11 +13,11 @@ namespace MoviesApis.DBContexts
 {
     public class MySqlDbContext : DbContext
     {
-        //public DbSet<Series> Serieses { get; set; }
-        //public DbSet<User> Users { get; set; }
-        //public DbSet<Season> Seasons { get; set; }
+        public DbSet<Series> Serieses { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Season> Seasons { get; set; }
         public DbSet<Video> Videos { get; set; }
-        public DbSet<WatchList> WatchLists { get; set; }
+        public DbSet<WatchingList> WatchLists { get; set; }
         public MySqlDbContext(DbContextOptions<MySqlDbContext> options) : base(options)
         {
         }

@@ -55,4 +55,16 @@ D:\Work\Earthlink\MoviesApis\MoviesApis\bin\Debug\net5.0\Microsoft.IdentityModel
 D:\Work\Earthlink\MoviesApis\MoviesApis\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\Work\Earthlink\MoviesApis\MoviesApis\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 D:\Work\Earthlink\MoviesApis\MoviesApis\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Work\Earthlink\MoviesApis\MoviesApis\bin\Debug\net5.0\DnsClient.dll
+D:\Work\Earthlink\MoviesApis\MoviesApis\bin\Debug\net5.0\MongoDB.Bson.dll
+D:\Work\Earthlink\MoviesApis\MoviesApis\bin\Debug\net5.0\MongoDB.Driver.dll
+D:\Work\Earthlink\MoviesApis\MoviesApis\bin\Debug\net5.0\MongoDB.Driver.Core.dll
+D:\Work\Earthlink\MoviesApis\MoviesApis\bin\Debug\net5.0\MongoDB.Libmongocrypt.dll
+D:\Work\Earthlink\MoviesApis\MoviesApis\bin\Debug\net5.0\SharpCompress.dll
+D:\Work\Earthlink\MoviesApis\MoviesApis\bin\Debug\net5.0\runtimes\win\native\libzstd.dll
+D:\Work\Earthlink\MoviesApis\MoviesApis\bin\Debug\net5.0\runtimes\win\native\snappy32.dll
+D:\Work\Earthlink\MoviesApis\MoviesApis\bin\Debug\net5.0\runtimes\win\native\snappy64.dll
+D:\Work\Earthlink\MoviesApis\MoviesApis\bin\Debug\net5.0\runtimes\linux\native\libmongocrypt.so
+D:\Work\Earthlink\MoviesApis\MoviesApis\bin\Debug\net5.0\runtimes\osx\native\libmongocrypt.dylib
+D:\Work\Earthlink\MoviesApis\MoviesApis\bin\Debug\net5.0\runtimes\win\native\mongocrypt.dll
 D:\Work\Earthlink\MoviesApis\MoviesApis\obj\Debug\net5.0\MoviesApis.csprojAssemblyReference.cache
