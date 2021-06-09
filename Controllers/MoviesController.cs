@@ -66,20 +66,6 @@ namespace MoviesApis.Controllers
             {
                 _movieService.Create(item);
             }
-            //WatchingList item = new WatchingList();
-            //Video video = new Video();
-            //video.Id = form.VideoId;
-            //video.Duration = form.Duration;
-
-            //item.VideoId = form.VideoId;
-            //item.SeasonId = form.SeasonId;
-            //item.SeekPosition = form.Seek;
-            //item.UserId = form.UserId;
-            //item.SeriesId = form.SeriesId;
-            //item.Duration = form.Duration;
-            //item.Video = video;
-            //item.CreationDateTime = System.DateTime.UtcNow;
-            //_movieService.Create(item);
 
             return CreatedAtRoute("GetMovie", new { id = item.Id.ToString() }, item);
         }

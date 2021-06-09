@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace MoviesApis.Models
 {
@@ -10,7 +8,10 @@ namespace MoviesApis.Models
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        //public List<WatchingList> WatchHistory { get; } = new List<WatchingList>();
+
+        [Required]
+        public string Password { get; set; }
+
         public DateTime CreationDateTime { get; set; }
         public DateTime? LastUpdateDateTime { get; set; }
     }
