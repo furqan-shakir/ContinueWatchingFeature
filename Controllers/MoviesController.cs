@@ -22,11 +22,11 @@ namespace MoviesApis.Controllers
             _movieService = movieService;
             _dbContext = dbContext;
         }
-        [HttpPost]
-        public ActionResult<WatchingList> Create(WatchingList item)
+        [HttpPut]
+        public ActionResult<WatchingList> Create(int movieId, WatchingList item)
         {
             // See if the video is already exist in the watching list
-            var watchingItem = _movieService.GetByUserAndMoviePin(item.UserId, item.VideoId);
+            var watchingItem = _movieService.GetByUserAndMoviePin(item.User.Id, item.Video.Id);
             if (watchingItem != null)
             {
                 var percentage = (item.SeekPosition / watchingItem.Video.Duration) * 100;
@@ -45,15 +45,16 @@ namespace MoviesApis.Controllers
                      break;
                     case Models.VideoType.Series:
                         // Remove the series if all the eposides for all the seasons have been watched.
-                        var totalEposidesNumber = _dbContext.Seasons.Where(s => s.SeriesId == watchingItem.SeriesId).Sum(s => s.EposidesNumber);
-                        var seriesWatchedItemsNumber = _movieService.CountWatchedSeriesItems(watchingItem.SeriesId);
+                        var totalEposidesNumber = _dbContext.Seasons.Where(s => s.SeriesId == watchingItem.Series.Id).Sum(s => s.EposidesNumber);
+                        var seriesWatchedItemsNumber = _movieService.CountWatchedSeriesItems(watchingItem.Series.Id);
                         if(totalEposidesNumber == seriesWatchedItemsNumber)
                         {
-                            _movieService.RemoveSeries(watchingItem.SeriesId);
+                            _movieService.RemoveSeries(watchingItem.Series.Id);
                         }
                         else // Otherwise, just update the seek position
                         {
-                            _movieService.Update(watchingItem.Id, item);
+                            item.Id = watchingItem.Id;
+                            _movieService.Update(item.Id, item);
                         }
                         break;
                     default:
@@ -62,12 +63,16 @@ namespace MoviesApis.Controllers
 
                 }
             }
-            else // add the record to the watching list
+            else // add the record to the watching list if it's not completed already!
             {
-                _movieService.Create(item);
+                var video = _dbContext.Videos.Where(v => v.Id == item.Video.Id).SingleOrDefault();
+                var percentage = (item.SeekPosition / video.Duration) * 100;
+                if (percentage <= 90)
+                {
+                    _movieService.Create(item);
+                }
             }
-
-            return CreatedAtRoute("GetMovie", new { id = item.Id.ToString() }, item);
+            return NoContent();
         }
 
     }

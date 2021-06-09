@@ -66,5 +66,5 @@ D:\Work\Earthlink\MoviesApis\MoviesApis\obj\Debug\net5.0\MoviesApis.dll
 D:\Work\Earthlink\MoviesApis\MoviesApis\obj\Debug\net5.0\ref\MoviesApis.dll
 D:\Work\Earthlink\MoviesApis\MoviesApis\obj\Debug\net5.0\MoviesApis.pdb
 D:\Work\Earthlink\MoviesApis\MoviesApis\obj\Debug\net5.0\MoviesApis.genruntimeconfig.cache
-D:\Work\Earthlink\MoviesApis\MoviesApis\obj\Debug\net5.0\MoviesApis.csproj.AssemblyReference.cache
 D:\Work\Earthlink\MoviesApis\MoviesApis\obj\Debug\net5.0\MoviesApis.RazorTargetAssemblyInfo.cache
+D:\Work\Earthlink\MoviesApis\MoviesApis\obj\Debug\net5.0\MoviesApis.csprojAssemblyReference.cache

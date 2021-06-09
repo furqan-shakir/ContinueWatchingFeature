@@ -25,13 +25,13 @@ namespace MoviesApis.Services
             _watchingList.Find<WatchingList>(record => record.Id == id).FirstOrDefault();
 
         public WatchingList GetByUserAndMoviePin(int userId, int videoId) =>
-           _watchingList.Find<WatchingList>(record => record.UserId == userId && record.VideoId == videoId).FirstOrDefault();
+           _watchingList.Find<WatchingList>(record => record.User.Id == userId && record.Video.Id == videoId).FirstOrDefault();
 
         public int CountWatchedSeriesItems(int seriesId) =>
-          (int)_watchingList.Find<WatchingList>(record => record.SeriesId == seriesId).CountDocuments();
+          (int)_watchingList.Find<WatchingList>(record => record.Series.Id == seriesId).CountDocuments();
 
         public void RemoveSeries(int seriesId) =>
-        _watchingList.DeleteMany<WatchingList>(record => record.SeriesId == seriesId);
+        _watchingList.DeleteMany<WatchingList>(record => record.Series.Id == seriesId);
 
         public WatchingList Create(WatchingList record)
         {
