@@ -23,7 +23,7 @@ namespace MoviesApis.Controllers
             _dbContext = dbContext;
         }
         [HttpPut]
-        public ActionResult<WatchingList> Create(int movieId, WatchingList item)
+        public ActionResult<WatchingList> WatchVideo(int movieId, WatchingList item)
         {
             // See if the video is already exist in the watching list
             var watchingItem = _movieService.GetByUserAndMoviePin(item.User.Id, item.Video.Id);
