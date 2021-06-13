@@ -25,7 +25,7 @@ Movie/episode duration is set random (between 1-2 hours)
 Asp.net core is to be used as a programming language, as for db you have to decide what db(s) can handle such feature without bottle necks
 No ui is needed
 
-## Solution: 
+## Solution
 Based on the previous user stories, this application will receive two types of queries: 
 1- Browse movies and series categorized by seasons, This type of query better relay on normalized data, which has been implemented by MySQL DB.
 The relational db is handeling the users, series, season, and videos entites. 
@@ -34,8 +34,13 @@ Denormalization here is the key to avoid such joins, I decided to use Mongodb to
 storing the watch document, which includes information about watched items such as the seek position and nested user, video, season, and series documents.
 Also, In terms of scalability, MongoDB supports horizontal scaling through sharding.
 
-## Run: 
-Seed the data and run the application, a swagger window will open, you can use to try the api out.
+## About the code
+- The `MovieService` responsible for encapsulating the logic that deals with Mongodb. The `MovieService` class is registered with DI to support constructor injection in consuming classes such as the controllers. The registration process was done through singleton.
+- The `MoviesDatabaseSettings` class is responsible for storing the settings of the Mongodb that comes from the appsetting.json file.
+- The `ModuleBuilderExtension` class is responsible for seeding the data
+
+## Run
+Run the migrations to seed the data by using the cli `dotnet ef database update` in the project directory, then run the application by using `dotnet run`, a swagger window will open, you can use to try the api out.
 
 
 
